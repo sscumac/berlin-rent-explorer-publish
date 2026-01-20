@@ -63,13 +63,13 @@
         <div class="w-full flex justify-center">
           <div class="-mt-4 text-sm md:text-base md:mt-2">Nettokaltmiete € / m²</div>
         </div>
-        <div class="mt-2 md:mt-6 text-xs md:text-sm">Daten: Wohnatlas Berlin 2009 und 2020</div>
+        <div class="mt-2 md:mt-6 text-xs md:text-sm">Daten: <a href="https://www.berlin.de/sen/wohnen/service/berliner-wohnungsmarkt/wohnatlas-berlin/" class="cursor-pointer underline hover:font-bold">Wohnatlas Berlin</a> 2009 und 2020</div>
       </div>
       <div
         class="text-xs md:text-base flex md:flex-col gap-6 md:gap-2 items-start mt-4"
         :class="state && state < 5 && 'opacity-40'"
       >
-        Farbskala berücksichtigt Werte aus den Jahren:
+        Farbskala auf Basis der Werte aus den Jahren:
         <div class="flex gap-4 w-2/3 md:w-auto lg:flex-col">
           <div
             v-for="year in [2009, 2020]"
