@@ -63,7 +63,7 @@
         <div class="w-full flex justify-center">
           <div class="-mt-4 text-sm md:text-base md:mt-2">Nettokaltmiete € / m²</div>
         </div>
-        <div class="mt-2 md:mt-6 text-xs md:text-sm">Daten: <a href="https://www.berlin.de/sen/wohnen/service/berliner-wohnungsmarkt/wohnatlas-berlin/" class="cursor-pointer underline hover:opacity-80">Wohnatlas Berlin</a> 2009 und 2020</div>
+        <div class="mt-2 md:mt-6 text-xs md:text-sm">Daten: <a href="https://www.berlin.de/sen/wohnen/service/berliner-wohnungsmarkt/wohnatlas-berlin/" class="cursor-pointer underline hover:opacity-80 transition-all duration-300">Wohnatlas Berlin</a> 2009 und 2020</div>
       </div>
       <div
         class="text-xs md:text-base flex md:flex-col gap-6 md:gap-2 items-start mt-4"
