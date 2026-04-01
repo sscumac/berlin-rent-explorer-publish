@@ -3,7 +3,7 @@
     <div
       class="w-full text-gray-600 justify-between items-center lg:items-start flex flex-col lg:flex-row mt-4 gap-4 lg:gap-0"
     >
-      <div class="flex items-center justify-end relative" :class="state && state < 5 && 'opacity-40'">
+      <div class="flex items-center justify-end relative" :class="state && state < 5 ? 'opacity-40' : ''">
         <!-- zoom navigation-->
         <div class="flex justify-end mr-4 md:mr-10 md:w-auto">
           <button
