@@ -15,7 +15,7 @@
       :initZoomLevel="initZoomLevel"
       :selectedYear="selectedYear"
       :colorScale2009="colorScale2009"
-      :colorScale2020="colorScale2020"
+      :colorScale2022="colorScale2022"
       :minRent="minRent"
       :maxRent="maxRent"
       :meanRent="meanRent"
@@ -25,9 +25,9 @@
       @zoomIn="onZoom('in')"
       @zoomOut="onZoom('out')"
       @zoomInitial="onZoom('initial')"
-      @toggleYear2020="toggleYear(2020)"
+      @toggleYear2022="toggleYear(2022)"
       @toggleYear2009="toggleYear(2009)"
-      @toggleColorScales2020="toggleColorScales(2020)"
+      @toggleColorScales2022="toggleColorScales(2022)"
       @toggleColorScales2009="toggleColorScales(2009)"
     />
   </div>
@@ -92,8 +92,8 @@ const props = defineProps({
 const selected = ref<Properties>();
 let colorsBothYears = ref(false);
 let mapInfo: MapInfo;
-let selectedYear = ref(2020);
-let colorScale2020 = ref(true);
+let selectedYear = ref(2022);
+let colorScale2022 = ref(true);
 let colorScale2009 = ref(false);
 
 let minRent = ref();
@@ -105,7 +105,7 @@ let meanRentC = ref();
 let cScale = d3.scaleLinear();
 
 let data2009: Data[];
-let data2020: Data[];
+let data2022: Data[];
 let completeDataSet: Data[];
 let LMainMap: any;
 let LBorderMap: any;
@@ -157,27 +157,27 @@ watch(
       hideTooltip();
     }
     if (value && value < 3) {
-      selectedYear.value = 2020;
-      colorScale2020.value = true;
+      selectedYear.value = 2022;
+      colorScale2022.value = true;
       colorScale2009.value = false;
-      showData(data2020);
+      showData(data2022);
     }
     if (value === 3) {
-      selectedYear.value = 2020;
-      colorScale2020.value = true;
+      selectedYear.value = 2022;
+      colorScale2022.value = true;
       colorScale2009.value = true;
-      showData(data2020);
+      showData(data2022);
     }
     if (value === 4) {
       selectedYear.value = 2009;
       colorScale2009.value = true;
-      colorScale2020.value = true;
+      colorScale2022.value = true;
       showData(data2009);
     }
     if (value === 5) {
       selectedYear.value = 2009;
       colorScale2009.value = true;
-      colorScale2020.value = false;
+      colorScale2022.value = false;
       showData(data2009);
     }
   }
@@ -221,17 +221,17 @@ function toggleYear(year: number) {
     selectedYear.value = 2009;
     colorScale2009.value = true;
     showData(data2009);
-  } else if (year === 2020) {
-    selectedYear.value = 2020;
-    colorScale2020.value = true;
-    showData(data2020);
+  } else if (year === 2022) {
+    selectedYear.value = 2022;
+    colorScale2022.value = true;
+    showData(data2022);
   }
 }
 
 function toggleColorScales(year: number) {
-  year === 2009 ? (colorScale2009.value = !colorScale2009.value) : (colorScale2020.value = !colorScale2020.value);
+  year === 2009 ? (colorScale2009.value = !colorScale2009.value) : (colorScale2022.value = !colorScale2022.value);
   colorsBothYears.value = !colorsBothYears.value;
-  showData(selectedYear.value === 2020 ? data2020 : data2009);
+  showData(selectedYear.value === 2022 ? data2022 : data2009);
 }
 
 function showTooltip(area: Properties, coords: number[]) {
@@ -275,7 +275,7 @@ function currentPositionOnLegendScale() {
 }
 
 function valuesAllData() {
-  completeDataSet = data2009.concat(data2020);
+  completeDataSet = data2009.concat(data2022);
   completeDataSet.forEach((d) => {
     d.Angebotsmieten = +d.Angebotsmieten;
   });
@@ -339,7 +339,7 @@ function showData(dataSource: Data[]) {
   });
 
   // color scale
-  if (colorScale2009.value && colorScale2020.value) {
+  if (colorScale2009.value && colorScale2022.value) {
     maxRent.value = maxRentC.value;
     minRent.value = minRentC.value;
     meanRent.value = meanRentC.value;
@@ -516,7 +516,7 @@ function initLeaflet() {
     LMainMap.dragging.enable();
   });
 
-  showData(data2020);
+  showData(data2022);
   drawBorders();
 }
 
@@ -524,11 +524,11 @@ onMounted(() => {
   // load data
   Promise.all([
     d3.csv("mieten_berlin_2009.csv"),
-    d3.csv("mieten_berlin_2020.csv"),
+    d3.csv("mieten_berlin_2022.csv"),
     d3.json("simplified.topo.json"),
   ]).then((data) => {
     data2009 = data[0];
-    data2020 = data[1];
+    data2022 = data[1];
     mapInfo = data[2];
     valuesAllData();
     initLeaflet();
