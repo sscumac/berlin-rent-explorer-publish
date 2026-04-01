@@ -70,7 +70,7 @@
       </div>
       <div
         class="text-xs md:text-base flex md:flex-col gap-6 md:gap-2 items-start mt-4"
-        :class="state && state < 5 && 'opacity-40'"
+        :class="state && state < 5 ? 'opacity-40' : ''"
       >
         Farbskala berechnet auf Basis der Werte aus den Jahren:
         <div class="flex gap-4 w-2/3 md:w-auto lg:flex-col">
