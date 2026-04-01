@@ -35,11 +35,11 @@
         <div class="flex justify-start items-center">
           <div class="bg-gray-50 p-2 flex">
             <button
-              :class="selectedYear === 2020 ? selectedButton : unselectedButton"
+              :class="selectedYear === 2022 ? selectedButton : unselectedButton"
               class="mr-2"
-              @click="$emit('toggleYear2020')"
+              @click="$emit('toggleYear2022')"
             >
-              2020
+              2022
             </button>
             <button :class="selectedYear === 2009 ? selectedButton : unselectedButton" @click="$emit('toggleYear2009')">
               2009
@@ -64,7 +64,7 @@
           <div class="-mt-4 text-sm md:text-base md:mt-2">Nettokaltmiete € / m²</div>
         </div>
         <div class="mt-2 md:mt-6 text-xs md:text-sm">
-          <div>Daten: <a href="https://www.berlin.de/sen/wohnen/service/berliner-wohnungsmarkt/wohnatlas-berlin/" class="cursor-pointer underline hover:opacity-80 transition-all duration-300">Wohnatlas Berlin</a> 2009 und 2020</div>
+          <div>Daten: <a href="https://www.berlin.de/sen/wohnen/service/berliner-wohnungsmarkt/wohnatlas-berlin/" class="cursor-pointer underline hover:opacity-80 transition-all duration-300">Wohnatlas Berlin</a> 2009 und 2022</div>
           <div>Basisdaten Prognoseräume: <a href="https://daten.odis-berlin.de/de/dataset/lor_prognoseraeume_2021/" class="cursor-pointer underline hover:opacity-80 transition-all duration-300">daten.odis-berlin.de</a></div>
         </div>
       </div>
@@ -75,7 +75,7 @@
         Farbskala berechnet auf Basis der Werte aus den Jahren:
         <div class="flex gap-4 w-2/3 md:w-auto lg:flex-col">
           <div
-            v-for="year in [2009, 2020]"
+            v-for="year in [2009, 2022]"
             :key="year"
             class="flex items-center gap-2"
             :class="selectedYear === year ? 'opacity-60' : 'cursor-pointer'"
@@ -86,7 +86,7 @@
                 :disabled="selectedYear === year"
                 class="w-7 h-7 border-white border-4"
                 :class="
-                  (year === 2009 && colorScale2009) || (year === 2020 && colorScale2020) || selectedYear === year
+                  (year === 2009 && colorScale2009) || (year === 2022 && colorScale2022) || selectedYear === year
                     ? 'bg-gray-400'
                     : 'bg-white'
                 "
@@ -115,7 +115,7 @@ const props = defineProps<{
   meanRent: number;
   maxRent: number;
   colorScale2009: boolean;
-  colorScale2020: boolean;
+  colorScale2022: boolean;
   legendScale: string;
 }>();
 
@@ -124,13 +124,13 @@ const emits = defineEmits([
   "zoomIn",
   "zoomOut",
   "zoomInitial",
-  "toggleYear2020",
+  "toggleYear2022",
   "toggleYear2009",
   "toggleColorScales2009",
-  "toggleColorScales2020",
+  "toggleColorScales2022",
 ]);
 
 function toggleColorScales(year: number) {
-  props.selectedYear !== year && (year === 2020 ? emits("toggleColorScales2020") : emits("toggleColorScales2009"));
+  props.selectedYear !== year && (year === 2022 ? emits("toggleColorScales2022") : emits("toggleColorScales2009"));
 }
 </script>

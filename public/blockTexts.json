@@ -1,10 +1,10 @@
 {
-  "one": "<p>Hallo! Willkommen beim Mieten-Explorer für Berlin.</p> <br/> Die Mieten in Berlin haben eine dramatische Entwicklung genommen. Wie dramatisch zeigen die Daten des Wohnatlas 2009 sowie 2020, in welchem die Nettokaltmieten pro Quadratmeter in den sogenannten Prognoseräumen dargestellt werden.",
-  "two": "Bei den Mieten 2020 gibt es innerhalb Berlins enorme Unterschiede.",
+  "one": "<p>Hallo! Willkommen beim Mieten-Explorer für Berlin.</p> <br/> Die Mieten in Berlin haben eine dramatische Entwicklung genommen. Wie dramatisch zeigen die Daten des Wohnatlas 2009 sowie 2022, in welchem die Nettokaltmieten pro Quadratmeter in den sogenannten Prognoseräumen dargestellt werden.",
+  "two": "Bei den Mieten 2022 gibt es innerhalb Berlins enorme Unterschiede.",
   "two-a": "Besonders hoch sind die Mieten im Zentrum.",
   "two-b": "In den Außenbereichen der Stadt sind die Mieten hingegen deutlich niedriger.",
   "three": "Wie hoch die Mieten schon gestiegen sind zeigt sich besonders, wenn die Werte aus dem Jahr 2009 in die Farbskala miteinbezogen werden. Viele Ortsteile finden sich dann im roten (oberen) Bereich.",
   "four": "Im Vergleich dazu die Karte für 2009: Hier sind alle Räume noch im grünen Bereich.",
-  "five": "Werden die Werte für 2020 bei der Karte für 2009 ausgeschlossen, sind wiederum Unterschiede innerhalb Berlins zu erkennen, wenngleich diese deutlich geringer ausfallen.",
+  "five": "Werden die Werte für 2022 bei der Karte für 2009 ausgeschlossen, sind wiederum Unterschiede innerhalb Berlins zu erkennen, wenngleich diese deutlich geringer ausfallen.",
   "six": "Wie haben sich die Mieten in deinem Gebiet entwickelt? Finde es heraus!"
 }
